@@ -1,40 +1,36 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
+import { css } from "@emotion/react"
+import { rhythm } from "../utils/typography"
 
 const Header = ({ siteTitle }) => (
   <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
+    css={css`
+      margin: 0 auto;
+      max-width: 700px;
+      padding-left: ${rhythm(1.5)};
+      padding-right: ${rhythm(1.5)};
+    `}
   >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
+    <h3
+      css={css`
+        margin-bottom: ${rhythm(2)};
+        display: flex;
+        font-style: normal;
+      `}
     >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-      <Link
-        to={`/about/`}
-        style={{
-          float: "right",
-        }}
-      >
-        About
-      </Link>
+      <Link to="/">{siteTitle}</Link>
+    </h3>
+    <div
+      css={css`
+        display: flex;
+        justify-content: space-between;
+      `}
+    >
+      <Link to={`/about/`}>About</Link>
+      <Link to={`/admin/`}>Admin</Link>
+      <Link to={`/recettes`}>Recettes</Link>
     </div>
   </header>
 )
