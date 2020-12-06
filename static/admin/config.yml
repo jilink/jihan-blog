@@ -1,0 +1,19 @@
+
+backend:
+  name: github
+  repo: jilink/jihan-blog
+  branch: main
+media_folder: static/assets
+public_folder: assets
+collections:
+  - name: recette
+    label: Recette
+    folder: content/recette
+    create: true
+    fields:
+      - { name: path, label: Path }
+      - { name: date, label: Date, widget: date }
+      - { name: title, label: Title }
+      - { name: ingredients, label: Ingredients, widget: list }
+      - { name: description, label: Description }
+      - { name: body, label: Body, widget: markdown }
