@@ -35,8 +35,9 @@ exports.createPages = async ({ graphql, actions }) => {
   data.recettes.edges.forEach(({ node }) => {
     const { slug } = node.fields
     actions.createPage({
-      path: `/recette/${slug}`,
-      component: 
+      path: `/recette${slug}`,
+      component: path.resolve("./src/components/templates/Recette.js"),
+      context: { slug: slug },
     })
   })
 }
