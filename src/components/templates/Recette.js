@@ -6,6 +6,9 @@ const Recette = ({ data }) => {
   return (
     <div>
       <h2>{data.markdownRemark.frontmatter.title}</h2>
+      <Img
+        fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
+      />
       <p>{data.markdownRemark.frontmatter.description}</p>
     </div>
   )
@@ -20,7 +23,13 @@ export const RecetteTemplateQuery = graphql`
       frontmatter {
         description
         title
-        image
+        image {
+          childImageSharp {
+            fixed(width: 200) {
+              ...GatsbyImageSharpFixed
+            }
+          }
+        }
       }
     }
   }
