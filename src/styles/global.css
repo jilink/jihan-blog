@@ -1,0 +1,39 @@
+:root {
+  --primary: #e9b08e;
+  --secondary: #dbcdb5;
+}
+
+small {
+   font-size:10px;
+}
+
+figcaption {
+  color:white;
+  background: var(--secondary);
+  text-align: center;
+}
+
+.list-item img {
+}
+
+
+.list-title.title-primary   {
+  background: var(--primary);
+  color: white;
+  text-align:center;
+}
+
+.list-pages .list-item .title {
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.list-pages {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.list-pages .list-item {
+  margin: 10px;
+}

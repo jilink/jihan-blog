@@ -2,23 +2,27 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
-const List = ({ list }) => {
+const PageList = ({ list }) => {
   return (
-    <ul className="list">
+    <ul className="list-pages">
       {list.map(({ node }) => {
         return (
           <li className="list-item" key={node.id}>
-            <Link to={`/recette${node.fields.slug}`}>
-              <p className="title">{node.frontmatter.title}</p>
-            </Link>
-            <Link to={`/recette${node.fields.slug}`}>
-              <Img
-                alt="Image de la recette indisponible"
-                fixed={node.frontmatter.image.childImageSharp.fixed}
-              />
-            </Link>
+            <figure>
+              <Link to={`/recette${node.fields.slug}`}>
+                <Img
+                  title={node.frontmatter.title}
+                  alt="Image de la recette indisponible"
+                  fixed={node.frontmatter.image.childImageSharp.fixed}
+                />
+              </Link>
+              <figcaption>
+                <small>{node.frontmatter.date}</small>
+              </figcaption>
+            </figure>
+            <h5 className="title">{node.frontmatter.title}</h5>
             <p>{node.frontmatter.description}</p>
-            <p>{node.frontmatter.date}</p>
+            <Link to={`/recette${node.fields.slug}`}>Découvrir la recette</Link>
           </li>
         )
       })}
@@ -26,4 +30,4 @@ const List = ({ list }) => {
   )
 }
 
-export default List
+export default PageList

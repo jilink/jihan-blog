@@ -2,7 +2,7 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import List from "../components/List"
+import PageList from "../components/List"
 
 import { Link, graphql } from "gatsby"
 
@@ -13,7 +13,7 @@ const IndexPage = ({ data }) => {
       <h1>Jihan Blog</h1>
       <p>Bienvenue sur le blog de Jihan</p>
       <h3 className="list-title title-primary">Nos dernières recettes</h3>
-      <List list={data.allMarkdownRemark.edges} />
+      <PageList list={data.allMarkdownRemark.edges} />
     </Layout>
   )
 }
@@ -33,7 +33,7 @@ export const IndexPageQuery = graphql`
           id
           frontmatter {
             title
-            date
+            date(formatString: "DD/MM - YYYY")
             description
             ingredients
             path
