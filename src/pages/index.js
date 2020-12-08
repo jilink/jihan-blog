@@ -2,6 +2,8 @@ import React from "react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import List from "../components/List"
+
 import { Link, graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
@@ -10,23 +12,19 @@ const IndexPage = ({ data }) => {
       <SEO title="Accueil" />
       <h1>Jihan Blog</h1>
       <p>Bienvenue sur le blog de Jihan</p>
-      <ul>
-        {data.allMarkdownRemark.edges.map(({ node }) => {
-          return (
-            <Link key={node.id} to={`/recette${node.fields.slug}`}>
-              {" "}
-              <li>{node.frontmatter.title}</li>
-            </Link>
-          )
-        })}
-      </ul>
+      <h3 className="list-title title-primary">Nos dernières recettes</h3>
+      <List list={data.allMarkdownRemark.edges} />
     </Layout>
   )
 }
 
+// only the last 3 most recent recipes
 export const IndexPageQuery = graphql`
   query IndexPageQuery {
-    allMarkdownRemark {
+    allMarkdownRemark(
+      sort: { fields: frontmatter___date, order: DESC }
+      limit: 3
+    ) {
       edges {
         node {
           fields {
@@ -39,6 +37,13 @@ export const IndexPageQuery = graphql`
             description
             ingredients
             path
+            image {
+              childImageSharp {
+                fixed(width: 200) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
         }
       }
