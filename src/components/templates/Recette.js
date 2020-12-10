@@ -3,8 +3,11 @@ import Img from "gatsby-image"
 import React from "react"
 import Layout from "../layout"
 import SEO from "../seo"
+import { DiscussionEmbed } from "disqus-react"
 
 const Recette = ({ data }) => {
+  console.log(process.env.GATSBY_DISQUS_NAME)
+  console.log(process.env.GATSBY_TEST)
   return (
     <Layout>
       <SEO title={data.markdownRemark.frontmatter.title} />
@@ -13,6 +16,13 @@ const Recette = ({ data }) => {
         fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
       />
       <p>{data.markdownRemark.frontmatter.description}</p>
+      <DiscussionEmbed
+        shortname={process.env.GATSBY_DISQUS_NAME}
+        config={{
+          identifier: data.markdownRemark.fields.slug,
+          title: data.markdownRemark.frontmatter.title,
+        }}
+      />
     </Layout>
   )
 }
