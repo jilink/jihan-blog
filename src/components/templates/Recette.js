@@ -1,16 +1,19 @@
 import { graphql } from "gatsby"
 import Img from "gatsby-image"
 import React from "react"
+import Layout from "../layout"
+import SEO from "../seo"
 
 const Recette = ({ data }) => {
   return (
-    <div>
+    <Layout>
+      <SEO title={data.markdownRemark.frontmatter.title} />
       <h2>{data.markdownRemark.frontmatter.title}</h2>
       <Img
         fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
       />
       <p>{data.markdownRemark.frontmatter.description}</p>
-    </div>
+    </Layout>
   )
 }
 
