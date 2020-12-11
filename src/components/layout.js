@@ -18,9 +18,10 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className="box-area">
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
       <div
+        className="content-area"
         css={css`
           margin: 0 auto;
           max-width: 90%;
@@ -37,7 +38,7 @@ const Layout = ({ children }) => {
           © Jihan
         </footer>
       </div>
-    </>
+    </div>
   )
 }
 
