@@ -6,12 +6,16 @@ import SEO from "../seo"
 import { DiscussionEmbed } from "disqus-react"
 
 const Recette = ({ data }) => {
-  console.log(process.env.GATSBY_DISQUS_NAME)
-  console.log(process.env.GATSBY_TEST)
+  const contentRef = React.useRef(null)
+  const executeScroll = () => contentRef.current.scrollIntoView()
+  React.useEffect(() => {
+    executeScroll()
+  }, [])
+
   return (
     <Layout>
       <SEO title={data.markdownRemark.frontmatter.title} />
-      <h2>{data.markdownRemark.frontmatter.title}</h2>
+      <h2 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h2>
       <Img
         fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
       />
