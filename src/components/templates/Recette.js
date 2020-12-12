@@ -3,7 +3,8 @@ import Img from "gatsby-image"
 import React from "react"
 import Layout from "../layout"
 import SEO from "../seo"
-import { DiscussionEmbed } from "disqus-react"
+
+import Comments from "../comments"
 
 const Recette = ({ data }) => {
   const contentRef = React.useRef(null)
@@ -13,21 +14,20 @@ const Recette = ({ data }) => {
   }, [])
 
   return (
-    <Layout>
-      <SEO title={data.markdownRemark.frontmatter.title} />
-      <h2 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h2>
-      <Img
-        fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
+    <>
+      <Layout>
+        <SEO title={data.markdownRemark.frontmatter.title} />
+        <h2 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h2>
+        <Img
+          fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
+        />
+        <p>{data.markdownRemark.frontmatter.description}</p>
+      </Layout>
+      <Comments
+        identifier={data.markdownRemark.fields.slug}
+        title={data.markdownRemark.frontmatter.title}
       />
-      <p>{data.markdownRemark.frontmatter.description}</p>
-      <DiscussionEmbed
-        shortname={process.env.GATSBY_DISQUS_NAME}
-        config={{
-          identifier: data.markdownRemark.fields.slug,
-          title: data.markdownRemark.frontmatter.title,
-        }}
-      />
-    </Layout>
+    </>
   )
 }
 
