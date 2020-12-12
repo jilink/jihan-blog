@@ -24,15 +24,26 @@ small {
    font-size:10px;
 }
 
+/* IMG */
+
 figcaption {
   color:white;
   background: var(--secondary);
   text-align: center;
 }
 
-.list-item img {
+figure a {
+  text-shadow: none;
+  color: white;
+  background-image: none;
 }
 
+a img:hover {
+  filter: grayscale(50%);
+  transition: all 0.2s ease-in;
+}
+
+/* LISTS */
 
 .list-title.title-primary   {
   background: var(--primary);
@@ -53,4 +64,10 @@ figcaption {
 
 .list-pages .list-item {
   margin: 10px;
+}
+
+.list-item .title {
+  background: var(--pink);
+  margin-bottom:0;
+  padding: 10px 0;
 }
