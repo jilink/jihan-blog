@@ -32,14 +32,13 @@ figcaption {
   text-align: center;
 }
 
-figure a {
+.container a {
   text-shadow: none;
   color: white;
   background-image: none;
 }
 
 a img:hover {
-  filter: grayscale(50%);
   transition: all 0.2s ease-in;
 }
 
@@ -49,11 +48,6 @@ a img:hover {
   background: var(--primary);
   color: white;
   text-align:center;
-}
-
-.list-pages .list-item .title {
-  text-transform: uppercase;
-  font-weight: bold;
 }
 
 .list-pages {
@@ -67,7 +61,26 @@ a img:hover {
 }
 
 .list-item .title {
+  text-transform: uppercase;
+  font-weight: bold;
+	font-size: 12px;
+  position: absolute; 
+  bottom: 0; 
   background: var(--pink);
-  margin-bottom:0;
-  padding: 10px 0;
+  color: #f1f1f1; 
+	opacity: 0;
+  width: 100%;
+  transition: .5s ease;
+  color: white;
+  padding: 5px;
+  text-align: center;
+
+}
+.list-item .container {
+  position: relative;
+  width: 50%;
+}
+
+.list-item .container:hover .title {
+  opacity: 1;
 }

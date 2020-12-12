@@ -1,7 +1,8 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState, useEffect, useRef } from "react"
-import banner from "../assets/media_banner.jpeg"
+import { StaticQuery, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 const Navbar = ({ siteTitle }) => {
   const [isSticky, setSticky] = useState(false)
@@ -45,14 +46,29 @@ const Navbar = ({ siteTitle }) => {
 }
 
 const Header = ({ siteTitle }) => (
-  <>
-    <header>
-      <Navbar siteTitle={siteTitle} />
-    </header>
-    <div className="banner-area">
-      <img src={banner} alt="banner" />
-    </div>
-  </>
+  <StaticQuery
+    query={graphql`
+      query headerQuery {
+        banner: file(relativePath: { eq: "banner.jpeg" }) {
+          childImageSharp {
+            fluid {
+              ...GatsbyImageSharpFluid
+            }
+          }
+        }
+      }
+    `}
+    render={data => (
+      <>
+        <header>
+          <Navbar siteTitle={siteTitle} />
+        </header>
+        <div className="banner-area">
+          <Img fluid={data.banner.childImageSharp.fluid} />
+        </div>
+      </>
+    )}
+  />
 )
 
 Header.propTypes = {

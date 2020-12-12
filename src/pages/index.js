@@ -4,7 +4,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import PageList from "../components/List"
 
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
 
 const IndexPage = ({ data }) => {
   return (
