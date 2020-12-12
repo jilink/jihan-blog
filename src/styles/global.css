@@ -1,6 +1,23 @@
 :root {
   --primary: #e9b08e;
   --secondary: #dbcdb5;
+  --pink: #f7707a;
+}
+
+@media (min-width: 768px) {
+  body {
+    background: #1d1135;
+    background: linear-gradient(to left, var(--primary), var(--pink));
+  }
+}
+@media (max-width: 768px) {
+  body {
+    background: var(--pink) !important;
+  }
+}
+
+.content-area {
+  background: white;
 }
 
 small {
