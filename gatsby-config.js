@@ -5,6 +5,7 @@ module.exports = {
     author: `@jilink`,
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-netlify-cms`,
     {
       resolve: `gatsby-source-filesystem`,

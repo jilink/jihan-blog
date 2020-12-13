@@ -1,19 +1,16 @@
-:root {
-  --primary: #e9b08e;
-  --secondary: #dbcdb5;
-  --pink: #f7707a;
-}
+@import "variables";
+@import "mixin";
 
-@media (min-width: 768px) {
-  body {
-    background: #1d1135;
-    background: linear-gradient(to left, var(--primary), var(--pink));
-  }
-}
-@media (max-width: 768px) {
-  body {
-    background: var(--pink) !important;
-  }
+
+body {
+	background: $color-pink;
+	@include xs {
+		background: $color-pink;
+	}
+
+	@include md {
+		background: linear-gradient(to left, $color-primary, $color-pink);
+	}
 }
 
 .content-area {
@@ -28,7 +25,7 @@ small {
 
 figcaption {
   color:white;
-  background: var(--secondary);
+  background: $color-secondary;
   text-align: center;
 }
 
@@ -45,7 +42,7 @@ a img:hover {
 /* LISTS */
 
 .list-title.title-primary   {
-  background: var(--primary);
+  background: $color-primary;
   color: white;
   text-align:center;
 }
@@ -66,7 +63,7 @@ a img:hover {
 	font-size: 12px;
   position: absolute; 
   bottom: 0; 
-  background: var(--pink);
+  background: $color-pink;
   color: #f1f1f1; 
 	opacity: 0;
   width: 100%;
@@ -75,6 +72,10 @@ a img:hover {
   padding: 5px;
   text-align: center;
 
+  @include md-down {
+    text-shadow: none;
+    opacity: 1;
+  }
 }
 .list-item .container {
   position: relative;
@@ -85,3 +86,9 @@ a img:hover {
   opacity: 1;
 }
 
+ul.list-pages {
+	@include md-down {
+		margin-left: 0;
+		justify-content:center;
+	}
+}
