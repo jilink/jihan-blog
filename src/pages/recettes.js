@@ -35,7 +35,6 @@ export const RecettesPageQuery = graphql`
             title
             date(formatString: "DD/MM - YYYY")
             description
-            ingredients
             path
             image {
               childImageSharp {
