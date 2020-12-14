@@ -22,6 +22,11 @@ const Recette = ({ data }) => {
           fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
         />
         <p>{data.markdownRemark.frontmatter.description}</p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: data.markdownRemark.html,
+          }}
+        />
       </Layout>
       <Comments
         identifier={data.markdownRemark.fields.slug}
@@ -34,6 +39,7 @@ const Recette = ({ data }) => {
 export const RecetteTemplateQuery = graphql`
   query RecetteTemplateQuery($slug: String) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
+      html
       fields {
         slug
       }
