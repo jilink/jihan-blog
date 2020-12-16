@@ -1,0 +1,11 @@
+.recette-layout h2, h1, h3 {
+  color: $color-primary;
+  text-align: center;
+  @include md-down {
+    margin-top:0;
+  }
+}
+
+.recette-image {
+  text-align: center;
+}

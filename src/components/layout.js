@@ -6,7 +6,7 @@ import { rhythm } from "../utils/typography"
 
 import Header from "./header"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, ...props }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -29,7 +29,7 @@ const Layout = ({ children }) => {
           padding-top: ${rhythm(1.5)};
         `}
       >
-        <main>{children}</main>
+        <main {...props}>{children}</main>
         <footer
           style={{
             marginTop: `2rem`,

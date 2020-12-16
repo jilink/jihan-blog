@@ -16,12 +16,14 @@ const Recette = ({ data }) => {
 
   return (
     <>
-      <Layout>
+      <Layout className="recette-layout">
         <SEO title={data.markdownRemark.frontmatter.title} />
-        <h2 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h2>
-        <Img
-          fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
-        />
+        <h1 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h1>
+        <div className="recette-image">
+          <Img
+            fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
+          />
+        </div>
         <p>{data.markdownRemark.frontmatter.description}</p>
         <IngredientList list={data.markdownRemark.frontmatter.ingredients} />
         <div
