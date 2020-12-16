@@ -1,6 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
+import IngredientList from "./IngredientList"
 
 const PageItem = ({ id, title, fixedImg, slug, date, description }) => {
   return (
@@ -44,4 +45,5 @@ const PageList = ({ list }) => {
   )
 }
 
+export { IngredientList }
 export default PageList

@@ -3,6 +3,7 @@ import Img from "gatsby-image"
 import React from "react"
 import Layout from "../layout"
 import SEO from "../seo"
+import { IngredientList } from "../List"
 
 import Comments from "../comments"
 
@@ -22,6 +23,7 @@ const Recette = ({ data }) => {
           fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
         />
         <p>{data.markdownRemark.frontmatter.description}</p>
+        <IngredientList list={data.markdownRemark.frontmatter.ingredients} />
         <div
           dangerouslySetInnerHTML={{
             __html: data.markdownRemark.html,
@@ -46,6 +48,10 @@ export const RecetteTemplateQuery = graphql`
       frontmatter {
         description
         title
+        ingredients {
+          name
+          quantity
+        }
         image {
           childImageSharp {
             fixed(width: 200) {
