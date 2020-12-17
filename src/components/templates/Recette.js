@@ -24,7 +24,7 @@ const Recette = ({ data }) => {
         <h1 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h1>
         <div className="recette-image">
           <Img
-            fixed={data.markdownRemark.frontmatter.image.childImageSharp.fixed}
+            fluid={data.markdownRemark.frontmatter.image.childImageSharp.fluid}
           />
         </div>
         <p>{data.markdownRemark.frontmatter.description}</p>
@@ -59,8 +59,8 @@ export const RecetteTemplateQuery = graphql`
         }
         image {
           childImageSharp {
-            fixed(width: 200) {
-              ...GatsbyImageSharpFixed
+            fluid(sizes: "(max-width: 800px) calc(100vw - 60px), 800px") {
+              ...GatsbyImageSharpFluid
             }
           }
         }
