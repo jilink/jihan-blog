@@ -9,7 +9,10 @@ import Comments from "../comments"
 
 const Recette = ({ data }) => {
   const contentRef = React.useRef(null)
-  const executeScroll = () => contentRef.current.scrollIntoView()
+  const executeScroll = () => {
+    contentRef.current.scrollIntoView()
+    window.scrollBy(0, -100)
+  }
   React.useEffect(() => {
     executeScroll()
   }, [])

@@ -20,10 +20,6 @@ header a:hover {
   display: inline-block;
 }
 
-.nav-links {
-  list-style: none;
-}
-
 .nav-item a {
   display: inline-block;
   padding: 10px 15px;
@@ -51,7 +47,9 @@ header a:hover {
 }
 
 .nav-links {
+  list-style: none;
   display: flex;
+  margin-bottom: 0;
 }
 
 /* sticky style */
