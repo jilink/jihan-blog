@@ -38,7 +38,7 @@ export const IndexPageQuery = graphql`
             path
             image {
               childImageSharp {
-                fixed(width: 200) {
+                fixed(width: 250) {
                   ...GatsbyImageSharpFixed
                 }
               }

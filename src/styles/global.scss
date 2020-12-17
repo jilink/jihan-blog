@@ -24,12 +24,6 @@ small {
 
 /* IMG */
 
-figcaption {
-  color:white;
-  background: $color-secondary;
-  text-align: center;
-}
-
 .container a {
   text-shadow: none;
   color: white;
@@ -56,6 +50,12 @@ a img:hover {
 
 .list-pages .list-item {
   margin: 10px;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+  max-width: min-content; 
+
+	box-shadow: 0 3px 5px $color-light-pink;
 }
 
 .list-item .title {
@@ -69,7 +69,6 @@ a img:hover {
 	opacity: 0;
   width: 100%;
   transition: .5s ease;
-  color: white;
   padding: 5px;
   text-align: center;
 

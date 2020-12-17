@@ -12,15 +12,15 @@ const PageItem = ({ id, title, fixedImg, slug, date, description }) => {
             title={title}
             alt="Image de la recette indisponible"
             fixed={fixedImg}
+            objectPosition="50% 50%"
           />
           <span className="title">{title}</span>
         </div>
       </Link>
-      <figcaption>
-        <small>{date}</small>
-      </figcaption>
       <p>{description}</p>
       <Link to={`/recette${slug}`}>Découvrir la recette</Link>
+      <br />
+      <small>{date}</small>
     </li>
   )
 }
