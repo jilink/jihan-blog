@@ -32,12 +32,6 @@ const Navbar = ({ siteTitle }) => {
             <li className="nav-item">
               <Link to={`/recettes/`}>Recettes</Link>
             </li>
-            <li className="nav-item">
-              <Link to={`/about/`}>About</Link>
-            </li>
-            <li className="nav-item">
-              <Link to={`/about/`}>About</Link>
-            </li>
           </ul>
         </nav>
       </div>

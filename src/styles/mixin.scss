@@ -38,3 +38,24 @@
        @content;
    }
 }
+
+// ANIMATIONS
+
+@keyframes rotateTop {
+  0% {
+    transform-origin: top;
+    transform: rotate(8deg);
+  }
+  50% {
+    transform-origin: top;
+    transform: rotate(-5deg);
+   }
+  75% {
+    transform-origin: top;
+    transform: rotate(3deg);
+   }
+  100% {
+    transform-origin: top;
+    transform: rotate(0deg);
+  }
+}

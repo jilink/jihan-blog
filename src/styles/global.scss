@@ -56,6 +56,7 @@ a img:hover {
   max-width: min-content; 
 
 	box-shadow: 0 3px 5px $color-light-pink;
+  animation: 0.5s ease-out 0s 1 rotateTop;
 }
 
 .list-item .title {

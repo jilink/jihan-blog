@@ -22,12 +22,12 @@ const Recette = ({ data }) => {
       <Layout className="recette-layout">
         <SEO title={data.markdownRemark.frontmatter.title} />
         <h1 ref={contentRef}>{data.markdownRemark.frontmatter.title}</h1>
+        <p>{data.markdownRemark.frontmatter.description}</p>
         <div className="recette-image">
           <Img
             fluid={data.markdownRemark.frontmatter.image.childImageSharp.fluid}
           />
         </div>
-        <p>{data.markdownRemark.frontmatter.description}</p>
         <IngredientList list={data.markdownRemark.frontmatter.ingredients} />
         <div
           dangerouslySetInnerHTML={{
