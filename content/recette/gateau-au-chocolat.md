@@ -3,6 +3,7 @@ path: gateau-chocolat
 date: 2020-12-17T17:18:21.492Z
 title: Gateau au chocolat
 image: assets/img-20191218-wa0006.jpg
+youtube_url: https://www.youtube.com/watch?v=mXC8wSv7Trg
 ingredients:
   - name: Oeufs
     quantity: "3"
