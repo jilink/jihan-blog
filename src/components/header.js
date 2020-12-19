@@ -34,7 +34,7 @@ const Navbar = ({ siteTitle }) => {
       identity.user &&
       identity.user.user_metadata &&
       identity.user.user_metadata.name) ||
-    "NoName"
+    "administateur"
   const isLoggedIn = identity && identity.isLoggedIn
 
   return (
@@ -51,7 +51,7 @@ const Navbar = ({ siteTitle }) => {
             {isLoggedIn ? (
               <li>
                 <button className="btn" onClick={() => setDialog(true)}>
-                  Bonjour ${name}, deconnecte toi ici!{" "}
+                  {`Bonjour ${name}, deconnecte toi ici!`}
                 </button>
               </li>
             ) : null}
