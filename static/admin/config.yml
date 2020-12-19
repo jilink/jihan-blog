@@ -1,6 +1,6 @@
 
 backend:
-  name: github
+  name: git-gateway
   repo: jilink/jihan-blog
   branch: main
 media_folder: static/assets
