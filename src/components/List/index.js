@@ -17,7 +17,7 @@ const PageItem = ({ id, title, fixedImg, slug, date, description }) => {
           <span className="title">{title}</span>
         </div>
       </Link>
-      <p>{description}</p>
+      <p className="description">{description}</p>
       <Link to={`/recette${slug}`}>Découvrir la recette</Link>
       <br />
       <small>{date}</small>

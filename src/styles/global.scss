@@ -54,9 +54,14 @@ a img:hover {
   border: 2px solid white;
   border-radius: 5px;
   max-width: min-content; 
+  background: white;
 
 	box-shadow: 0 3px 5px $color-light-pink;
   animation: 0.5s ease-out 0s 1 rotateTop;
+
+  .description {
+    font-size: 15px;
+  }
 }
 
 .list-item .title {
