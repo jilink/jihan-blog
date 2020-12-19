@@ -9,9 +9,9 @@ ingredients:
     quantity: "3"
   - name: Chocolat
     quantity: 300g
-description: Un gateau moelleux au chocolat, très bon pour une recette simple et
-  rapide, pas compliqué, mélanger en quelques minutes avec votre mixer et le
-  tour est joué
+description: Un gateau très moelleux au chocolat, très bon pour une recette
+  simple et rapide, pas compliqué, mélanger en quelques minutes avec votre mixer
+  et le tour est joué
 ---
 # **Etape 1 :**
 
