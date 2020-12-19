@@ -34,6 +34,21 @@ const Recette = ({ data }) => {
             __html: data.markdownRemark.html,
           }}
         />
+        {data.markdownRemark.frontmatter.youtube_url ? (
+          <div class="youtube-container">
+            <iframe
+              class="youtube-iframe"
+              width="560"
+              height="315"
+              src={`https://www.youtube.com/embed/${data.markdownRemark.frontmatter.youtube_url
+                .split("=")
+                .pop()}`}
+              frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen
+            ></iframe>
+          </div>
+        ) : null}
       </Layout>
       <Comments
         identifier={data.markdownRemark.fields.slug}
@@ -53,6 +68,7 @@ export const RecetteTemplateQuery = graphql`
       frontmatter {
         description
         title
+        youtube_url
         ingredients {
           name
           quantity

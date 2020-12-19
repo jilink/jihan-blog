@@ -15,6 +15,7 @@ collections:
       - { name: date, label: Date, widget: date }
       - { name: title, label: Title }
       - { name: image, label: Image, widget: image }
+      - { name: youtube_url, label: Lien de la vidéo youtube, widget: string }
       - label: "ingredients"
         name: "ingredients"
         widget: "list"
