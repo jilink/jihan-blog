@@ -48,11 +48,13 @@ const Navbar = ({ siteTitle }) => {
             <li className="nav-item">
               <Link to={`/recettes/`}>Recettes</Link>
             </li>
-            <li>
-              <button className="btn" onClick={() => setDialog(true)}>
-                {isLoggedIn ? `Bonjour ${name}, deconnecte toi ici!` : null}
-              </button>
-            </li>
+            {isLoggedIn ? (
+              <li>
+                <button className="btn" onClick={() => setDialog(true)}>
+                  Bonjour ${name}, deconnecte toi ici!{" "}
+                </button>
+              </li>
+            ) : null}
           </ul>
         </nav>
       </div>
