@@ -20,7 +20,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-netlify-identity`,
       options: {
-        url: `https://jihan-blog.netlify.com`,
+        url: `https://jihan-blog.netlify.com/admin`,
       },
     },
     {
