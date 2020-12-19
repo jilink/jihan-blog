@@ -4,6 +4,11 @@ import React, { useState, useEffect, useRef } from "react"
 import { StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
+import IdentityModal, {
+  useIdentityContext,
+} from "react-netlify-identity-widget"
+import "react-netlify-identity-widget/styles.css"
+
 const Navbar = ({ siteTitle }) => {
   const [isSticky, setSticky] = useState(false)
   const ref = useRef(null)
@@ -21,6 +26,17 @@ const Navbar = ({ siteTitle }) => {
     }
   }, [])
 
+  // admin
+  const identity = useIdentityContext()
+  const [dialog, setDialog] = React.useState(false)
+  const name =
+    (identity &&
+      identity.user &&
+      identity.user.user_metadata &&
+      identity.user.user_metadata.name) ||
+    "NoName"
+  const isLoggedIn = identity && identity.isLoggedIn
+
   return (
     <div className={`sticky-wrapper${isSticky ? " sticky" : ""}`} ref={ref}>
       <div className="sticky-inner">
@@ -32,9 +48,19 @@ const Navbar = ({ siteTitle }) => {
             <li className="nav-item">
               <Link to={`/recettes/`}>Recettes</Link>
             </li>
+            <li>
+              <button className="btn" onClick={() => setDialog(true)}>
+                {isLoggedIn ? `Hello ${name}, Log out here!` : "Admin"}
+              </button>
+            </li>
           </ul>
         </nav>
       </div>
+      <IdentityModal
+        aria-labelledby="identityDialog"
+        showDialog={dialog}
+        onCloseDialog={() => setDialog(false)}
+      />
     </div>
   )
 }

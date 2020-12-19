@@ -1,3 +1,12 @@
+const activeEnv =
+  process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+
+console.log(`Using environment config: '${activeEnv}'`)
+
+require("dotenv").config({
+  path: `.env.${activeEnv}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Jihan Blog`,
@@ -7,6 +16,13 @@ module.exports = {
   plugins: [
     `gatsby-plugin-sass`,
     `gatsby-plugin-netlify-cms`,
+    `gatsby-plugin-netlify-identity-widget`,
+    {
+      resolve: `gatsby-plugin-netlify-identity`,
+      options: {
+        url: `${process.env.GATSBY_NETLIFY_IDENTITY_URL}`,
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {
