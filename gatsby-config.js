@@ -15,7 +15,12 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
-    `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-plugin-netlify-cms`,
+      options: {
+        modulePath: `${__dirname}/src/cms/netlify.js`,
+      },
+    },
     `gatsby-plugin-netlify-identity-widget`,
     {
       resolve: `gatsby-plugin-netlify-identity`,
